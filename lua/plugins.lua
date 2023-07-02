@@ -7,11 +7,9 @@ require("packer").startup(function(use)
 		tag = "0.1.0",
 		requires = { { "nvim-lua/plenary.nvim" } },
 	})
-	use({
-		"williamboman/mason.nvim",
-		"williamboman/mason-lspconfig.nvim",
-		"neovim/nvim-lspconfig",
-	})
+	use("williamboman/mason.nvim")
+	use("williamboman/mason-lspconfig.nvim")
+	use("neovim/nvim-lspconfig")
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
@@ -31,7 +29,7 @@ require("packer").startup(function(use)
 	use("hrsh7th/cmp-nvim-lsp-signature-help")
 	use("hrsh7th/cmp-vsnip")
 	use("hrsh7th/cmp-path")
-	use("hrsh7th/cmp-buffer")
+	--use("hrsh7th/cmp-buffer")
 	use("hrsh7th/vim-vsnip")
 	use("puremourning/vimspector")
 	use({
@@ -47,4 +45,24 @@ require("packer").startup(function(use)
 	})
 
 	use("lukas-reineke/indent-blankline.nvim")
+	use 'wakatime/vim-wakatime'
+	use {
+		'saecki/crates.nvim',
+		tag = 'v0.3.0',
+		requires = { 'nvim-lua/plenary.nvim' },
+		config = function()
+			require('crates').setup()
+		end,
+	}
+	use("windwp/nvim-ts-autotag")
+	use {
+	  'nvim-tree/nvim-tree.lua',
+	  requires = {
+		'nvim-tree/nvim-web-devicons', -- optional
+	  },
+	  config = function()
+		require("nvim-tree").setup {}
+	  end
+	}
+	use("ionide/Ionide-vim")
 end)
