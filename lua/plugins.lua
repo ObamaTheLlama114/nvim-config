@@ -1,4 +1,7 @@
 require("packer").startup(function(use)
+    use 'andweeb/presence.nvim'
+    use 'ray-x/go.nvim'
+    use 'ray-x/guihua.lua'
 	use("wbthomason/packer.nvim")
 	use("lewis6991/impatient.nvim")
 	use({ "catppuccin/nvim", as = "catppuccin" })
@@ -16,7 +19,10 @@ require("packer").startup(function(use)
 	})
 	use("nvim-treesitter/playground")
 	use("tjdevries/colorbuddy.vim")
-	use("j-hui/fidget.nvim")
+	use({
+        "j-hui/fidget.nvim",
+        tag = "legacy"
+    })
 	use("simrat39/rust-tools.nvim")
 	use("nvim-lua/plenary.nvim")
 	use("mfussenegger/nvim-dap")
